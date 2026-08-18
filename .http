@@ -1,0 +1,43 @@
+@host = http://localhost:3000
+
+### Health check
+GET {{host}}/health
+
+### Register
+POST {{host}}/auth/register
+content-type: application/json
+
+{
+  "email": "longntp@gmail.com",
+  "password": "123456789"
+}
+
+### Login user
+POST {{host}}/auth/login
+content-type: application/json
+
+{
+  "email": "longntp@gmail.com",
+  "password": "123456789"
+}
+
+### Login admin
+POST {{host}}/auth/login
+content-type: application/json
+
+{
+  "email": "admin@gmail.com",
+  "password": "admin@123"
+}
+
+### /auth/me
+get {{host}}/auth/me
+content-type: application/json
+
+### Logout
+post {{host}}/auth/logout
+content-type: application/json
+
+### Get users
+get {{host}}/admin/users
+content-type: application/json
