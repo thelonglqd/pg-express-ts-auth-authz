@@ -26,9 +26,8 @@ export const requireAuth = async (
     const result = await pool.query<PublicUser>(findTokenHashQuery, [tokenHash])
 
     const user = result.rows[0]
-
+    // console.log(user.id); => error with "noUncheckedIndexedAccess": true
     if (!user) return res.status(401).json({ error: 'not authenticated' })
-
     req.user = user
     return next()
   } catch (error) {
